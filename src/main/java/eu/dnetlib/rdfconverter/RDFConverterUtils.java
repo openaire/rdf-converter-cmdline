@@ -26,6 +26,25 @@ public class RDFConverterUtils {
 
 	private static final Logger log = LoggerFactory.getLogger(RDFConverterUtils.class);
 
+	public boolean existNQuads(File inputDir) {
+		if (!inputDir.isDirectory()) {
+			return false;
+		}
+		FileFilter nquadsFilter = new FileFilter() {
+			public boolean accept(File file) {
+				if (file.getName().endsWith(".nq")) {
+					return true;
+				}
+				return false;
+			}
+		};
+		File[] inputFiles = inputDir.listFiles(nquadsFilter);
+		if (inputFiles==null || inputFiles.length==0) {
+			return false;
+		}
+		return true;
+	}
+
 	public void nQuads2DataciteJson(File inputDir, File outputDir, boolean jsonLDDump) {
 		File[] inputFiles = inputDir.listFiles();
 		Arrays.stream(inputFiles).forEach(f -> {

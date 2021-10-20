@@ -101,6 +101,10 @@ public class RDFConverterApp implements CommandLineRunner {
 
 		final CommandLine cmd = cmdLineParser.parse(options, args, true);
 		final File inputDir = new File(cmd.getOptionValue("i"));
+		if (!RDFConverterUtils.existNQuads(inputDir)) {
+			log.error("INPUT DIRECTORY: " + inputDir + " MUST CONTAIN .nq FILES");
+			throw new RuntimeException("INPUT DIRECTORY: " + inputDir + " MUST CONTAIN .nq FILES");
+		}
 		final File outputDir = prepareDir(cmd.getOptionValue("o"));
 		final boolean jsonLDDump = cmd.hasOption("j");
 

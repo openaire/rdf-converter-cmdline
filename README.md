@@ -14,11 +14,11 @@ and assumes that every .nq file is related to one single scraped url.
 ```
 git clone https://github.com/openaire/rdf-converter-cmdline.git                                                                                                   
 Cloning into 'rdf-converter-cmdline'...
-remote: Enumerating objects: 5, done.
-remote: Counting objects: 100% (5/5), done.
-remote: Compressing objects: 100% (5/5), done.
-remote: Total 5 (delta 0), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (5/5), done.
+remote: Enumerating objects: 19, done.
+remote: Counting objects: 100% (19/19), done.
+remote: Compressing objects: 100% (15/15), done.
+remote: Total 19 (delta 0), reused 19 (delta 0), pack-reused 0
+Receiving objects: 100% (19/19), 20.47 KiB | 838.00 KiB/s, done.
 
 cd rdf-converter-cmdline/
 mvn package
@@ -48,7 +48,7 @@ Command line RDF converter
 usage: ./rdf-converter-cmdline.jar [-h] [-i] <arg> -o <arg> [-j] [-v] [-vv]
         [-z]
 -h,--help             help
--i,--input <arg>      the input directory (REQUIRED)
+-i,--input <arg>      the input directory that must contain .nq files (REQUIRED)
 -o,--output <arg>     the output directory (REQUIRED)
 -j,--jsonld          print input data with json-ld format
 -v                    verbose
@@ -60,7 +60,7 @@ usage: ./rdf-converter-cmdline.jar [-h] [-i] <arg> -o <arg> [-j] [-v] [-vv]
 ## Example usage
 
 ```
-./rdf-converter-cmdline-2.3.4.RELEASE.jar -i /tmp/rdf-converter-input -o /tmp/rdf-converter-output -j
+./rdf-converter-cmdline-2.3.4.RELEASE.jar -i /tmp/rdf-converter-input/ -o /tmp/rdf-converter-output/ -j
 ```
 
 The command above performs the following actions
